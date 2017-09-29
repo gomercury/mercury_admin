@@ -1,0 +1,13 @@
+<div id="sessions-new">
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form-default" }) do |f| %>
+    <div class="container inner-container">
+      <div class="form-inputs">
+        <%= f.input :email, error: false, autofocus: true, label: false, placeholder: "Email Address", input_html: { class: "input-default" } %>
+        <%= f.input :password, error: false, label: false, placeholder: "Password", input_html: { class: "input-default" } %>
+      </div>
+      <div class="form-actions">
+        <%= f.submit "Log in", class: "button button-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

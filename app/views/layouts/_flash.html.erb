@@ -1,3 +1,7 @@
 <% flash.each do |key, value| %>
-  <div class="flash <%= key %> <%= flash_position %>"><%= value.humanize %></div>
+  <div class="flash <%= key %>">
+  	<div class="container">
+  		<%= value.humanize %>
+  	</div>
+  </div>
 <% end %>

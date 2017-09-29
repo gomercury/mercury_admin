@@ -60,6 +60,28 @@ table.table-default {
 
 /* forms */
 
+form.form-default {
+	.form-inputs {
+		padding-bottom: 10px;
+
+		.input {
+			margin-bottom: 20px;
+
+			label {
+				font-size: 12px;
+		    font-weight: 600;
+		    color: #31251c;
+		    display: block;
+			}
+		}
+
+		.checkbox {
+			margin: 0 0 0 20px;
+			font-weight: 400;
+		}
+	}
+}
+
 form.form-stacked {
 	table {
 		min-width: 420px;
@@ -122,6 +144,54 @@ form.form-stacked {
 			}
 		}
 	}
+}
+
+/* input fields */
+
+.input-default {
+	@include border-radius(3px);
+	border: 1px solid #e0e2e3;
+	padding: 10px;
+	font-size: 13px;
+	color: #85898c;
+	width: 300px;
+	background: white;
+
+	&:focus {
+		border: 1px solid $primary;
+		outline-width: 0;
+	}
+}
+
+select.input-default {
+	width: 178px;
+	height: 40px;
+}
+
+:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0 30px white inset;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+	color: #C2C7CC;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color: #C2C7CC;
+	opacity: 1;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: #C2C7CC;
+	opacity: 1;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	color: #C2C7CC;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+	color: #C2C7CC;
 }
 
 /* buttons */

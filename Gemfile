@@ -28,6 +28,10 @@ gem 'filestack-rails', '~> 2.2.0', require: 'filepicker-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
 # Vector icons. Read more: https://github.com/bokmann/font-awesome-rails
 gem 'font-awesome-rails'
+# Flexible authentication solution. Read more: https://github.com/plataformatec/devise
+gem 'devise'
+# Flexible forms. Read more: https://github.com/plataformatec/simple_form
+gem 'simple_form'
 
 group :development, :test do
   # Load env variables from .env. Read more: https://github.com/bkeepers/dotenv
