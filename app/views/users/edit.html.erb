@@ -1,18 +1,15 @@
-<div id="registrations-edit">
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form-default" }) do |f| %>
-    <%= devise_error_messages! %>
-
-    <div class="container inner-container">
+<div id="users-edit">
+  <div class="container">
+    <%= simple_form_for @user, html: { class: "form-default" } do |f| %>
       <div class="form-inputs">
         <%= f.input :name, error: false, autofocus: true, label: false, placeholder: "Name", input_html: { class: "input-default" } %>
         <%= f.input :role, error: false, as: :select, collection: ["restricted", "admin"], label: false, input_html: { class: "input-default" } %>
         <%= f.input :email, error: false, label: false, placeholder: "Email Address", input_html: { class: "input-default" } %>
-        <%= f.input :password, error: false, label: false, placeholder: "Password", input_html: { class: "input-default" } %>
-        <%= f.input :password_confirmation, error: false, label: false, placeholder: "Password Confirmation", input_html: { class: "input-default" } %>
+        <%= f.input :password, error: false, autocomplete: "off", label: false, placeholder: "Password", input_html: { class: "input-default" } %>
       </div>
       <div class="form-actions">
         <%= f.submit "Update", class: "button button-primary" %>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
