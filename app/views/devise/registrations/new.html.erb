@@ -3,6 +3,7 @@
     <%= devise_error_messages! %>
     <div class="container inner-container">
       <div class="form-inputs">
+        <%= f.input :name, error: false, autofocus: true, label: false, placeholder: "Name", input_html: { class: "input-default" } %>
         <%= f.input :email, error: false, autofocus: true, label: false, placeholder: "Email Address", input_html: { class: "input-default" } %>
         <%= f.input :password, error: false, label: false, placeholder: "Password", input_html: { class: "input-default" } %>
         <%= f.input :password_confirmation, error: false, label: false, placeholder: "Password Confirmation", input_html: { class: "input-default" } %>
