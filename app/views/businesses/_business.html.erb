@@ -7,6 +7,6 @@
 	<td><%= business.phone %></td>
 	<td><%= business.address %></td>
 	<td class="nowrap">
-		<%= link_to "edit", edit_business_path(business), class: "button button-secondary button-small" %>
+		<%= link_to "edit", edit_business_path(business), class: "button button-secondary button-small", "data-push" => "true", "data-target" => "#yield-container" %>
 	</td>
 </tr>
