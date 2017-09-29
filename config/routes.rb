@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :edit, :update]
   
   resources :businesses
+
+  get 'unauthorized', to: 'pages#unauthorized', as: 'unauthorized'
 end

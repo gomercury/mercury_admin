@@ -7,4 +7,9 @@ class User < ApplicationRecord
   # validations
   validates :name, presence: true
   validates :role, presence: true
+
+  def is_admin?
+  	user = self
+  	return user.role == "admin"
+  end
 end

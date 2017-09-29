@@ -7,4 +7,10 @@ class ApplicationController < ActionController::Base
     def configure_permitted_parameters
 	    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :password])
 	  end
+
+	  def admin_user
+      unless current_user && current_user.is_admin?
+        redirect_to unauthorized_path
+      end
+    end
 end

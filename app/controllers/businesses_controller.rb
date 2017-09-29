@@ -1,4 +1,6 @@
 class BusinessesController < ApplicationController
+	before_action :admin_user
+
 	def create
 	end
 
