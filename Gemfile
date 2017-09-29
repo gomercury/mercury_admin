@@ -32,6 +32,10 @@ gem 'font-awesome-rails'
 gem 'devise'
 # Flexible forms. Read more: https://github.com/plataformatec/simple_form
 gem 'simple_form'
+# Fork or thread long-running code blocks. Read more: https://github.com/tra/spawnling
+gem 'spawnling', '~>2.1'
+# HTTP requests. Read more: https://github.com/jnunemaker/httparty
+gem 'httparty'
 
 group :development, :test do
   # Load env variables from .env. Read more: https://github.com/bkeepers/dotenv
