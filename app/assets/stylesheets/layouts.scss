@@ -1,0 +1,69 @@
+@import "universal.scss";
+
+/* _header */
+
+#header {
+	@include box-shadow(0 0 1px 1px rgba(0,0,0,0.1));
+	width: 100%;
+	margin: 0;
+	border: 0;
+	z-index: 1;
+	overflow: hidden;
+	padding: 0;
+	background: rgba(0,0,0,0);
+
+	.container {
+		.navbar-header {
+			margin: 0;
+
+			.navbar-toggle {
+				@include transition(all, 0.2s);
+				border: 0;
+				padding: 0;
+				margin: 15px 0 0 0;
+				font-size: 20px;
+				cursor: pointer;
+				color: #777;
+
+				&:hover {
+					@include transition(all, 0.2s);
+					background: none;
+					color: #333;
+				}
+			}
+		}
+
+		#navbar {
+			border: 0;
+			padding: 0;
+
+			ul {
+				margin: 10px 0;
+				float: none;
+				display: inline-block;
+
+				li {
+					margin: 0;
+
+					a {
+						font-size: 11px;
+						font-weight: 600;
+						margin: 10px 25px;
+						padding: 0;
+						text-transform: uppercase;
+						letter-spacing: 1px;
+						color: #31251c;
+
+						&:hover {
+							color: lighten(#31251c, 10%);
+						}
+
+						&:active, &:focus {
+							color: darken(#31251c, 10%);
+						}
+					}
+				}
+			}
+		}
+	}
+}

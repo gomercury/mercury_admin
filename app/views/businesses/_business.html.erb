@@ -1,0 +1,12 @@
+<tr class="business">
+	<td class="nowrap thumbnail-cell">
+		<%= filepicker_image_tag business.thumbnail, fit: 'crop', w: 40, h: 40 %>
+	</td>
+	<td><%= business.name %></td>
+	<td><%= business.email %></td>
+	<td><%= business.phone %></td>
+	<td><%= business.address %></td>
+	<td class="nowrap">
+		<%= link_to "edit", edit_business_path(business), class: "button button-secondary button-small" %>
+	</td>
+</tr>

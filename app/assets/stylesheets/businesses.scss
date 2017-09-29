@@ -1,0 +1,20 @@
+@import "universal.scss";
+
+/* index */
+
+#businesses-index {
+	.container {
+		table {
+			width: 100%;
+			margin: 20px 0;
+		}
+	}
+}
+
+/* _business */
+
+.business {
+	.thumbnail-cell {
+		padding-right: 0;
+	}
+}
