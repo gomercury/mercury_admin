@@ -1,7 +1,38 @@
 class BusinessesController < ApplicationController
 	before_action :admin_user
 
+	def new
+		@business = Business.new
+	end
+
 	def create
+		@business = Business.new(business_params)
+		response = BusinessService.create(business_params)
+		if response.code == 201
+			mercury_business_id = JSON.parse(response.body)["business"]["id"]
+			@business.mercury_business_id = mercury_business_id
+			if @business.save
+				access_token = JSON.parse(response.body)["api_key"]["access_token"]
+				api_key = ApiKey.new(
+					business_id: @business.id,
+					access_token: access_token,
+				)
+				if api_key.save
+					flash[:success] = "created business"
+					redirect_to businesses_path
+				else
+					@business.destroy
+					flash.now[:fail] = api_key.errors.full_messages.first
+					render :new
+				end
+			else
+				flash.now[:fail] = @business.errors.full_messages.first
+				render :new
+			end
+		else
+			flash.now[:fail] = JSON.parse(response.body)["errors"].first
+			render :new
+		end
 	end
 
 	def index
@@ -14,31 +45,22 @@ class BusinessesController < ApplicationController
 
 	def update
 		@business = Business.find(params[:id])
-		if !valid_address?(params)
-			flash.now[:fail] = "Select a valid business address"
-			render :edit
-		elsif @business.update_attributes(business_params)
-			#Spawnling.new do
-				BusinessService.update(business_params)
-			#end
-			flash[:success] = "updated business"
-			redirect_to businesses_path
+		response = BusinessService.update(@business, business_params)
+		if response.code == 200
+			if @business.update_attributes(business_params)
+				flash[:success] = "updated business"
+				redirect_to businesses_path
+			else
+				flash.now[:fail] = @business.errors.full_messages.first
+				render :edit
+			end
 		else
-			flash.now[:fail] = @business.errors.full_messages.first
+			flash.now[:fail] = JSON.parse(response.body)["errors"].first
 			render :edit
 		end
 	end
 
 	private
-
-		def valid_address?(params)
-			latitude = params[:business][:latitude]
-			longitude = params[:business][:longitude]
-			if longitude == "" || latitude == ""
-				return false
-			end
-			return true
-		end
 
 		def business_params
 			params.require(:business).permit(

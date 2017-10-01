@@ -10,4 +10,7 @@ class Business < ApplicationRecord
   validates :longitude, presence: true, numericality: true
   validates :latitude, presence: true, numericality: true
   validates :description, presence: true
+
+  # relationships
+  has_many :api_keys
 end

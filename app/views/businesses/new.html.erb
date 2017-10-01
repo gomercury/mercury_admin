@@ -1,0 +1,88 @@
+<div id="businesses-new">
+	<div class="container">
+		<%= simple_form_for @business, html: { class: "form-stacked" } do |f| %>			
+			<div class="slim-header">Business Information</div>
+			<div class="photo-container">
+				<div class="photo">
+					<% if @business.thumbnail && @business.thumbnail != "" %>
+						<%= filepicker_image_tag @business.thumbnail, fit: "crop", h: 160, w: 160, id: "photo" %>
+					<% end %>
+				</div>
+				<%= f.filepicker_field :thumbnail, button_text: "Change Photo", button_class: "button button-secondary button-small photo-button", onchange: "onBusinessPhotoUpload(event)", label: false %>
+			</div>
+			<table>
+				<tbody>
+					<tr>
+						<td>Name</td>
+						<td>
+							<%= f.input :name, error: false, label: false %>
+						</td>
+					</tr>
+					<tr>
+						<td>Address</td>
+						<td>
+							<%= f.input :address, error: false, label: false %>
+						</td>
+					</tr>
+					<tr>
+						<td>Description</td>
+						<td>
+							<%= f.input :description, error: false, label: false, as: :text %>
+						</td>
+					</tr>
+					<tr>
+						<td>Email Address</td>
+						<td>
+							<%= f.input :email, error: false, label: false %>		
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Phone Number
+						</td>
+						<td>
+							<%= f.input :phone, error: false, label: false %>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div class="slim-header">Social Information</div>
+			<table>
+				<tbody>
+					<tr>
+						<td>Facebook</td>
+						<td>
+							<%= f.input :facebook, label: false %>
+						</td>
+					</tr>
+					<tr>
+						<td>Yelp</td>
+						<td>
+							<%= f.input :yelp, label: false %>
+						</td>
+					</tr>
+					<tr>
+						<td>Instagram</td>
+						<td>
+							<%= f.input :instagram, label: false %>
+						</td>
+					</tr>
+					<tr>
+						<td>Twitter</td>
+						<td>
+							<%= f.input :twitter, label: false %>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+				
+			<%= f.input :latitude, as: :hidden %>
+			<%= f.input :longitude, as: :hidden %>
+
+			<div class="form-actions">
+				<%= f.submit "Save", class: "button button-primary" %>
+			</div>
+		<% end %>
+	</div>
+</div>
