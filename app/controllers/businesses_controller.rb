@@ -60,6 +60,23 @@ class BusinessesController < ApplicationController
 		end
 	end
 
+	def destroy
+		@business = Business.find(params[:id])
+		response = BusinessService.destroy(@business)
+		if response.code == 200
+			if @business.destroy
+				flash[:success] = "deleted business"
+				redirect_to businesses_path
+			else
+				flash.now[:fail] = @business.errors.full_messages.first
+				render :index
+			end
+		else
+			flash.now[:fail] = JSON.parse(response.body)["errors"].first
+			render :index
+		end
+	end
+
 	private
 
 		def business_params
