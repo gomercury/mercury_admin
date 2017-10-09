@@ -13,4 +13,8 @@ class Business < ApplicationRecord
 
   # relationships
   has_many :api_keys
+
+  after_create_commit { BusinessCreateBroadcastJob.perform_now self }
+  after_update_commit { BusinessUpdateBroadcastJob.perform_now self }
+  after_destroy_commit { BusinessDestroyBroadcastJob.perform_now self }
 end

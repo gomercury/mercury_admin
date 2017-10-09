@@ -3,11 +3,11 @@
   <head>
     <title>MercuryAdmin</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places&key=<%= Rails.application.secrets.google_api_key %>"></script>
     <%= filepicker_js_include_tag %>
+    <%= action_cable_meta_tag %>
   </head>
 
   <body>

@@ -1,4 +1,4 @@
-<tr class="business">
+<tr class="business" id="business_<%= business.id %>">
 	<td class="nowrap thumbnail-cell">
 		<%= filepicker_image_tag business.thumbnail, fit: 'crop', w: 40, h: 40 %>
 	</td>
@@ -8,6 +8,6 @@
 	<td><%= business.address %></td>
 	<td class="nowrap">
 		<%= link_to "edit", edit_business_path(business), class: "button button-secondary button-small", "data-push" => "true", "data-target" => "#yield-container" %>
-		<%= link_to "delete", business, class: "button button-secondary button-small", method: :delete %>
+		<%= link_to "delete", business, class: "button button-secondary button-small", method: :delete, data: { confirm: "Sure you want to delete #{business.name}?" } %>
 	</td>
 </tr>
