@@ -25,10 +25,14 @@ initializeAutocomplete = ->
   return
 
 $(document).ready ->
-	# autogrow textarea height to fit content inside
-	if $('#business_description')[0]
-		$('#business_description').autogrow()
-
 	# autocomplete address with google places api
 	if $('#business_address').length
 		google.maps.event.addDomListener window, 'load', initializeAutocomplete
+
+	# format phone number field
+	if $('input[type="tel"]').length
+		$('input[type="tel"]').mask('(000) 000-0000')
+
+	# autogrow textarea height to fit content inside
+	if $('textarea').length
+		$('textarea').autogrow()
