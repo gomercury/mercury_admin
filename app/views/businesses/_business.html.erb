@@ -5,7 +5,7 @@
 	<td><%= business.name %></td>
 	<td><%= business.email %></td>
 	<td><%= business.phone %></td>
-	<td><%= business.address %></td>
+	<td><%= business.api_keys.first.access_token %></td>
 	<td class="nowrap">
 		<%= link_to "edit", edit_business_path(business), class: "button button-secondary button-small", "data-push" => "true", "data-target" => "#yield-container" %>
 		<%= link_to "delete", business, class: "button button-secondary button-small", method: :delete, data: { confirm: "Sure you want to delete #{business.name}?" } %>
