@@ -20,44 +20,9 @@
 	}
 }
 
-/* edit */
+/* _form */
 
-#businesses-edit {
-	margin: 40px 0;
-
-	.photo-container {
-		position: relative;
-		margin-bottom: 10px;
-		width: 160px;
-		height: 160px;
-
-		.photo {
-			width: inherit;
-			height: inherit;
-			background: #f0f1f2;
-			border: 1px solid #E2E3E4;
-			overflow: hidden;
-		}
-
-		.photo-button {
-			position: absolute;
-			top: 5px;
-			left: 5px;
-		}
-	}
-
-	.slim-header {
-		margin-bottom: 20px;
-	}
-
-	table {
-		margin-bottom: 40px;
-	}
-}
-
-/* new */
-
-#businesses-new {
+.business-form {
 	margin: 40px 0;
 
 	.photo-container {
