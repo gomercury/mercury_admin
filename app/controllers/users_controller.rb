@@ -22,7 +22,11 @@ class UsersController < ApplicationController
 	def destroy
 		@user = User.find(params[:id])
 		if @user.destroy
-			redirect_to users_path
+			if @user == current_user
+				redirect_to new_user_session_path
+			else
+				redirect_to users_path
+			end
 		else
 			flash.now[:fail] = @user.errors.full_messages.first
 			render :index
