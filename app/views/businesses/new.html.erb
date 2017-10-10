@@ -8,7 +8,7 @@
 						<%= filepicker_image_tag @business.thumbnail, fit: "crop", h: 160, w: 160, id: "photo" %>
 					<% end %>
 				</div>
-				<%= f.filepicker_field :thumbnail, button_text: "Change Photo", button_class: "button button-secondary button-small photo-button", onchange: "onBusinessPhotoUpload(event)", label: false %>
+				<%= f.filepicker_field :thumbnail, button_text: "Change Photo", button_class: "button button-secondary button-small photo-button", onchange: "onBusinessPhotoUpload(event)", label: false, "data-fp-crop-ratio"=> 1, "data-fp-crop-force" => true %>
 			</div>
 			<table>
 				<tbody>
