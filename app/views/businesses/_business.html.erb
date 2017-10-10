@@ -3,8 +3,7 @@
 		<%= filepicker_image_tag business.thumbnail, fit: 'crop', w: 40, h: 40 %>
 	</td>
 	<td><%= business.name %></td>
-	<td><%= business.email %></td>
-	<td><%= business.phone %></td>
+	<td><%= business.mercury_business_id %></td>
 	<td><%= business.api_keys.first.access_token %></td>
 	<td class="nowrap">
 		<%= link_to "edit", edit_business_path(business), class: "button button-secondary button-small", "data-push" => "true", "data-target" => "#yield-container" %>
