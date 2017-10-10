@@ -18,7 +18,6 @@ class BusinessesController < ApplicationController
 					access_token: access_token,
 				)
 				if api_key.save
-					flash[:success] = "created business"
 					redirect_to businesses_path
 				else
 					@business.destroy
@@ -36,7 +35,7 @@ class BusinessesController < ApplicationController
 	end
 
 	def index
-		@businesses = Business.all
+		@businesses = Business.by_created_at
 	end
 
 	def edit
@@ -48,7 +47,6 @@ class BusinessesController < ApplicationController
 		response = BusinessService.update(@business, business_params)
 		if response.code == 200
 			if @business.update_attributes(business_params)
-				flash[:success] = "updated business"
 				redirect_to businesses_path
 			else
 				flash.now[:fail] = @business.errors.full_messages.first
@@ -65,7 +63,6 @@ class BusinessesController < ApplicationController
 		response = BusinessService.destroy(@business)
 		if response.code == 200
 			if @business.destroy
-				flash[:success] = "deleted business"
 				redirect_to businesses_path
 			else
 				flash.now[:fail] = @business.errors.full_messages.first

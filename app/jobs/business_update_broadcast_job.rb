@@ -2,7 +2,7 @@ class BusinessUpdateBroadcastJob < ApplicationJob
 	queue_as :default
 
 	def perform(business)
-		ActionCable.server.broadcast "businesses_update", { id: business.id, business: render_business(business) }
+		ActionCable.server.broadcast "business_update", { id: business.id, business: render_business(business) }
 	end
 
 	private

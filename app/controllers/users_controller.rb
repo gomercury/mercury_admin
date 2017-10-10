@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 	before_action :admin_user
 
 	def index
-		@users = User.all
+		@users = User.by_created_at
 	end
 
 	def edit
@@ -12,11 +12,20 @@ class UsersController < ApplicationController
 	def update
 		@user = User.find(params[:id])
 		if @user.update_attributes(user_params)
-			flash[:success] = "updated user"
 			redirect_to users_path
 		else
 			flash.now[:fail] = @user.errors.full_messages.first
 			render :edit
+		end
+	end
+
+	def destroy
+		@user = User.find(params[:id])
+		if @user.destroy
+			redirect_to users_path
+		else
+			flash.now[:fail] = @user.errors.full_messages.first
+			render :index
 		end
 	end
 

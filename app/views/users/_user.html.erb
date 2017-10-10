@@ -1,8 +1,9 @@
-<tr>
+<tr id="user_<%= user.id %>">
 	<td><%= user.name %></td>
 	<td><%= user.email %></td>
 	<td><%= user.role %></td>
 	<td class="nowrap">
 		<%= link_to "edit", edit_user_path(user), class: "button button-secondary button-small", "data-push" => "true", "data-target" => "#yield-container" %>
+		<%= link_to "delete", user, class: "button button-secondary button-small", method: :delete, data: { confirm: "Sure you want to delete #{user.name}?" } %>
 	</td>
 </tr>
