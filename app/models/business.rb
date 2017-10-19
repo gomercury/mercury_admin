@@ -18,7 +18,6 @@ class Business < ApplicationRecord
   scope :by_created_at, -> { order("created_at DESC") }
 
   # update businesses in real time
-  after_create_commit { BusinessCreateBroadcastJob.perform_now self }
   after_update_commit { BusinessUpdateBroadcastJob.perform_now self }
   after_destroy_commit { BusinessDestroyBroadcastJob.perform_now self }
 end

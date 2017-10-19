@@ -13,17 +13,8 @@ class BusinessesController < ApplicationController
 			@business.mercury_business_id = mercury_business_id
 			if @business.save
 				access_token = JSON.parse(response.body)["api_key"]["access_token"]
-				api_key = ApiKey.new(
-					business_id: @business.id,
-					access_token: access_token,
-				)
-				if api_key.save
-					redirect_to businesses_path
-				else
-					@business.destroy
-					flash.now[:fail] = api_key.errors.full_messages.first
-					render :new
-				end
+				@business.api_keys.create(access_token: access_token)
+				redirect_to businesses_path
 			else
 				flash.now[:fail] = @business.errors.full_messages.first
 				render :new

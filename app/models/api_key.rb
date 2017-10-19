@@ -5,4 +5,7 @@ class ApiKey < ApplicationRecord
 
 	# relationships
 	belongs_to :business
+
+	# update business in real time
+  after_create_commit { BusinessCreateBroadcastJob.perform_now self.business }
 end
