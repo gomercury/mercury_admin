@@ -83,4 +83,10 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Set cable server's URI
+  config.web_socket_server_url = "wss://mercury-admin.herokuapp.com/cable" 
+
+  # Pass specified origins to the Action Cable server's configuration
+  config.action_cable.allowed_request_origins = ['https://mercury-admin.herokuapp.com', 'http://mercury-admin.herokuapp.com']
 end
