@@ -36,6 +36,8 @@ gem 'simple_form'
 gem 'spawnling', '~>2.1'
 # HTTP requests. Read more: https://github.com/jnunemaker/httparty
 gem 'httparty'
+# Ruby client library for Redis. Read more: https://github.com/redis/redis-rb
+gem 'redis', '~>3.3'
 
 group :development, :test do
   # Load env variables from .env. Read more: https://github.com/bkeepers/dotenv
