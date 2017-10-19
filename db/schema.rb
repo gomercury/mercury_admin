@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20171001231043) do
 
   create_table "api_keys", force: :cascade do |t|
     t.string   "access_token", null: false
-    t.string   "business_id",  null: false
+    t.integer  "business_id",  null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["business_id"], name: "index_api_keys_on_business_id", using: :btree
