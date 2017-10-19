@@ -1,6 +1,6 @@
 production:
   adapter: redis
-  url: redis://redistogo:9f3401bc8aed7cb7257d8ea94117646e@greeneye.redistogo.com:10146/
+  url: <%= ENV["REDISTOGO_URL"] %>
   
 development:
   adapter: async
